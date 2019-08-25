@@ -1,0 +1,35 @@
+
+.app-wrapper {
+  display: grid;
+  margin: auto;
+  max-width: 1200px;
+  grid-template-areas: "header header header" "sidebar profile profile" "footer footer footer";
+  grid-template-rows: 60px 1fr;
+  grid-template-columns: 1fr 4fr;
+  grid-gap: 4px;
+
+  header {
+    grid-area: header;
+  }
+
+  .sidebar {
+    grid-area: sidebar;
+  }
+
+  .profile {
+    grid-area: profile;
+  }
+
+  footer {
+    grid-area: footer;
+  }
+}
+
+
+
+
+
+
+
+
+
