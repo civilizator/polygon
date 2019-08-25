@@ -26,4 +26,4 @@ yarn-error.log*
 .idea/vcs.xml
 .idea/watcherTasks.xml
 src/components/
-!/.idea/
+/.idea/
