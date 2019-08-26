@@ -1,17 +1,39 @@
 import React from "react"
+import {BrowserRouter, Route} from 'react-router-dom'
+
 import "./App.scss"
 
-import {Header, Sidebar, Profile, Footer} from "./components"
+import {Header, Sidebar, Profile, Messages, News, Music, Settings, Footer} from "./components"
 
 
 const App = () => {
     return (
-        <div className="app-wrapper">
-            <Header />
-            <Sidebar />
-            <Profile />
-            <Footer />
-        </div>
+        <BrowserRouter>
+            <div className="app-wrapper">
+
+                <div className="header">
+                    <Header/>
+                </div>
+                <div className="sidebar">
+                    <Sidebar/>
+                </div>
+                <div className="content">
+
+                    {/*<Switch>*/}
+                    {/*<Route path="/" component={Main} exact/>*/}
+                    <Route path="/profile" component={Profile} />
+                    <Route path="/messages" component={Messages} />
+                    <Route path="/news" component={News} />
+                    <Route path="/music" component={Music} />
+                    <Route path="/settings" component={Settings} />
+                    {/*</Switch>*/}
+
+                </div>
+                <div className="footer">
+                    <Footer/>
+                </div>
+            </div>
+        </BrowserRouter>
     )
 }
 
