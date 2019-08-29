@@ -1,11 +1,73 @@
 .MyPosts {
+  padding: 10px 0 12px 30px;
 
   .title {
-    color: #156475;
+    padding: 0 0 12px 30px;
+
+    h3 {
+      color: #156475;
+    }
+
+    .form {
+      padding: 10px 0 0 0;
+      max-width: 600px;
+
+      .textareaMessage {
+        outline: none;
+        border: none;
+        width: 100%;
+        max-width: 600px;
+        padding: 5px 10px;
+        height: 130px;
+        font-size: 16px;
+        margin-bottom: 14px;
+        line-height: 18px;
+        border-radius: 3px;
+        transition: color .2s, box-shadow .1s, background .1s;
+        color: #3f3f3f;
+        background: #dbeaed;
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.22);
+
+        &:focus {
+          background: #fff;
+        }
+      }
+
+      .buttonSubmit {
+        outline: none;
+        border: none;
+        padding: 6px;
+        font-size: 14px;
+        margin-right: -20px;
+        width: 280px;
+        float: right;
+        position: relative;
+        cursor: pointer;
+        border-radius: 3px;
+        transition: color .2s, box-shadow .1s, background .1s;
+        background: #dbeaed;
+        color: #516059;
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.22);
+        font-weight: 900;
+
+        &:hover {
+          background: #e6f1f3;
+        }
+
+        &:active {
+          box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.22);
+        }
+      }
+    }
+
   }
 
   .post {
     color: black;
   }
+
+
+
+
 }
 
