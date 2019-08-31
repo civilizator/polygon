@@ -7,34 +7,25 @@ import { Header, Sidebar, Profile, Messages, News, Music, Settings, Footer } fro
 
 
 const App = (props) => {
-    const { headerData, profile, messages } = props.data
+    const { header, profile, messages } = props.data
 
     return (
         <BrowserRouter>
             <div className="app-wrapper">
 
-                <div className="header">
-                    <Header headerData={ headerData }/>
-                </div>
-                <div className="sidebar">
-                    <Sidebar/>
-                </div>
-                <div className="content">
+                <div className="header"><Header header={ header }/></div>
 
-                    <Route path="/profile" render={ () => {
-                        return <Profile profile={ profile }/>
-                    } }/>
-                    <Route path="/messages" render={ () => {
-                        return <Messages messages={ messages }/>
-                    } }/>
+                <div className="sidebar"><Sidebar/></div>
+
+                <div className="content">
+                    <Route path="/profile" render={ () => <Profile profile={ profile } /> } />
+                    <Route path="/messages" render={ () => <Messages messages={ messages } /> } />
                     <Route path="/news" component={ News }/>
                     <Route path="/music" component={ Music }/>
                     <Route path="/settings" component={ Settings }/>
+                </div>
 
-                </div>
-                <div className="footer">
-                    <Footer/>
-                </div>
+                <div className="footer"><Footer/></div>
             </div>
         </BrowserRouter>
     )

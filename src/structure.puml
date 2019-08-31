@@ -1,0 +1,33 @@
+@startwbs
+* index
+** App
+*** BrowserRouter
+
+**** Header
+
+**** Sidebar
+
+**** Profile
+***** MyPosts
+****** Post
+******* Form
+******* Likes
+******* Post
+***** ProfileInfo
+
+
+**** Messages
+***** User
+***** UserPost
+
+**** News
+
+**** Music
+
+**** Settings
+
+**** Footer
+
+
+
+@endwbs
