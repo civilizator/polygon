@@ -1,24 +1,21 @@
 import React from "react"
 import classes from "./Profile.module.scss"
-import MyPosts from "./MyPosts/MyPosts"
-import {ProfileInfo} from "./ProfileInfo"
+import { MyPosts } from "./MyPosts/MyPosts"
+import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
 
 
-const Profile = () => {
+const Profile = (props) => {
+    const { infoProfile, myPosts } = props.profile
+
     return (
-        <div className={classes.profile}>
+        <div className={ classes.profile }>
             <ProfileInfo
-                bgUrl="https://ipiccy.com/res/template/img/hp_v2/pics/ba-01s3.jpg"
-                profileImgUrl="https://timedotcom.files.wordpress.com/2015/04/512137691.jpg?w=800&quality=85"
-                descriptionProfile="Avatar + Description
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                                    Aliquid dolorem fugit iusto, magnam magni sed?
-
-                                    Avatar + Description
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+                bgUrl={ infoProfile.bgUrl }
+                profileImgUrl={ infoProfile.profileImgUrl }
+                descriptionProfile={ infoProfile.descriptionProfile }
             />
 
-            <MyPosts />
+            <MyPosts myPosts={ myPosts }/>
         </div>
     )
 }

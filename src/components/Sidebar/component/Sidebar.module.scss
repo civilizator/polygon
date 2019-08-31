@@ -9,7 +9,7 @@
     li {
       color: #3291ad;
       font-size: 18px;
-      padding: 5px 20px;
+      padding: 2px 20px;
 
       a {
         color: inherit;
@@ -17,6 +17,9 @@
         height: inherit;
         display: block;
         cursor: pointer;
+        font-size: 18px;
+        font-weight: 600;
+
         &.active {
           color: #003a18;
         }

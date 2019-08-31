@@ -1,39 +1,39 @@
 import React from "react"
 import classes from "./Messages.module.scss"
-import {User} from "./User"
-import {UserPost} from "./UserPost"
+import { User } from "./User/User"
+import { UserPost } from "./UserPost/UserPost"
 
-const messagesUsers = [
-    {userId: "1", userName: "Dan"},
-    {userId: "2", userName: "John"},
-    {userId: "3", userName: "Sarah"},
-    {userId: "4", userName: "Jax"},
-    {userId: "5", userName: "Helen"},
-    {userId: "6", userName: "Brain"},
-    {userId: "7", userName: "Katrine"}
-]
 
-const Messages = () => {
+const Messages = (props) => {
+    const { users, message } = props.messages
+
+    const eachUser = users.map( (user) => {
+        return (
+            <User key={ user.userId } userId={ user.userId } userName={ user.userName }/>
+        )
+    } )
+
+    const eachMessage = message.map( (message, i) => {
+        return (
+            <UserPost key={ i } userPost={ message.userPost }/>
+        )
+    } )
+
     return (
-        <div className={classes.messages}>
-            <div className={classes.users}>
+        <div className={ classes.messages }>
+
+            <div className={ classes.users }>
                 <ul>
-                    <User userId="1" userName="Dan"/>
-                    <User userId="2" userName="John"/>
-                    <User userId="3" userName="Sarah"/>
-                    <User userId="4" userName="Jax"/>
-                    <User userId="5" userName="Nair"/>
-                    <User userId="6" userName="Brain"/>
+                    { eachUser }
                 </ul>
             </div>
-            <div className={classes.message}>
+
+            <div className={ classes.message }>
                 <ul>
-                    <UserPost userPost="Lorem ipsum dolor sit amet."/>
-                    <UserPost userPost="Lorem ipsum dolor sit amet, consectetur."/>
-                    <UserPost userPost="Lorem ipsum dolor."/>
-                    <UserPost userPost="Lorem ipsum dolor sit."/>
+                    { eachMessage }
                 </ul>
             </div>
+
         </div>
     )
 }

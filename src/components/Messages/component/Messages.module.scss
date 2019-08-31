@@ -1,5 +1,5 @@
 .messages {
-  background-color: #f8fbfb;
+  background-color: #fdfdfd;
   min-height: 100%;
 
   display: grid;
@@ -16,8 +16,9 @@
       li {
         color: #3291ad;
         font-size: 18px;
-        padding: 5px 0px;
+        padding: 5px 0;
         list-style-type: disc;
+
         a {
           color: inherit;
           width: inherit;

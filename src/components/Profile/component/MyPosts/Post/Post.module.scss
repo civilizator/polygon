@@ -1,8 +1,13 @@
 
 .post {
-  max-width: 600px;
-  padding: 18px 0 16px 20px;
-  border-bottom: #c5edf7 solid 1px;
+  max-width: 644px;
+  padding: 18px 20px 16px 20px;
+  clear: right;
+  display: grid;
+  grid-template-columns: 2fr 14fr;
+  background-color: #f6fbfb;
+  border-radius: 10px;
+  margin-bottom: 8px;
 
   .avatar {
     width: 50px;
@@ -12,7 +17,6 @@
 
   .text {
     color: black;
-    margin: 4px 8px 12px 10px;
     font-size: 18px;
 
     .like {

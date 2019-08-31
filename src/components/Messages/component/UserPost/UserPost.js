@@ -1,5 +1,5 @@
 import React from "react"
-import classes from "./Messages.module.scss"
+import classes from "../Messages.module.scss"
 
 export const UserPost = (props) => {
     return (
