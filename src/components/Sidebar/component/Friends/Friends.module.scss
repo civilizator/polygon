@@ -1,0 +1,46 @@
+
+.friends {
+  padding: 30px 14px 0;
+
+  h3 {
+    color: #317c4c;
+    margin-bottom: 20px;
+    text-align: center;
+    letter-spacing: 7px;
+    text-transform: uppercase;
+  }
+
+  .mates {
+    //display: grid;
+    //grid-template-columns: 1fr 1fr 1fr;
+    //grid-template-columns: repeat(3, 1fr);
+    span {
+      $sizeMate: 57px;
+      float: left;
+      margin-bottom: 14px;
+      padding: 0 6px;
+      text-overflow: ellipsis;
+      width: $sizeMate;
+      white-space: nowrap;
+      overflow: hidden;
+      text-align: center;
+      font-size: 14px;
+      font-weight: 500;
+      color: #317c4c;
+
+      p {
+
+        width: $sizeMate;
+        height: $sizeMate;
+        border-radius: $sizeMate;
+        background-color: #4d9e62;
+        margin-bottom: 4px;
+      }
+    }
+
+    .clearedFloat {
+      clear: left;
+    }
+  }
+}
+

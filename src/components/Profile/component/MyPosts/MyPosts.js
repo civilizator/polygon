@@ -4,6 +4,7 @@ import { Form } from "./Post/Form"
 import { Post } from "./Post/Post"
 
 
+
 export const MyPosts = (props) => {
     const { myPosts } = props
 
@@ -14,5 +15,5 @@ export const MyPosts = (props) => {
         )
     } )
 
-    return <div className={ classes.MyPosts }> <Form/> { Posts }</div>
+    return <div className={ classes.MyPosts }><Form/> { Posts }</div>
 }

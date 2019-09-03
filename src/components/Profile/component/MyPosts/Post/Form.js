@@ -1,4 +1,4 @@
-import classes from "./Form.module.scss";
+import classes from "./Post.module.scss";
 import React from "react";
 
 

@@ -16,16 +16,8 @@ export const data = {
             { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Hi", like: "1" },
             { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "How are you?", like: "4" },
             { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Hello", like: "3" },
-            {
-                myAvatar: "https://www.w3schools.com/howto/img_avatar2.png",
-                post: "All just is fine for  me",
-                like: "5"
-            },
-            {
-                myAvatar: "https://www.w3schools.com/howto/img_avatar2.png",
-                post: "Ok. I'm happy for you :)",
-                like: "14"
-            }
+            { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "All just is fine for  me", like: "5" },
+            { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Ok. I'm happy for you :)", like: "14" }
         ]
     },
 
@@ -48,5 +40,19 @@ export const data = {
             { userPost: "Lorem ipsum dolor." },
             { userPost: "Lorem ipsum dolor sit." }
         ]
-    }
+    },
+
+    //Friends
+    friends: [
+        { name: "Michael" },
+        { name: "No Name No Name" },
+        { name: "Sarah" },
+        { name: "John" },
+        { name: "Vlada" },
+        { name: "Michael" },
+        { name: "No Name No Name" },
+        { name: "Sarah" },
+        { name: "John" },
+        { name: "Vlada" }
+    ]
 }
