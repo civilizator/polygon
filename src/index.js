@@ -4,10 +4,10 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { data, addPost } from './Data'
+import { data, addPost, updateNewPostText } from './Data'
 
 export const renderEntireThree = (props) => {
-    ReactDOM.render( <App data={ props } addPost={ addPost } />, document.getElementById( 'root' ) );
+    ReactDOM.render( <App data={ props } addPost={ addPost } updateNewPostText={ updateNewPostText } />, document.getElementById( 'root' ) );
 }
 renderEntireThree(data)
 

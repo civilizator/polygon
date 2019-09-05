@@ -21,7 +21,8 @@ export const data = {
             { id: 3, myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Hello", like: 3 },
             { id: 4, myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "All just is fine for  me", like: 5 },
             { id: 5, myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Ok. I'm happy for you :)", like: 14 }
-        ]
+        ],
+        newPostText: "text"
     },
 
 
@@ -39,8 +40,12 @@ export const data = {
 
         message: [
             { userPost: "Lorem ipsum dolor sit amet." },
+            { myPost: "MY POST Lorem amet." },
+            { myPost: "MY POST Lorem amet." },
+            { myPost: "MY POST Lorem amet." },
             { userPost: "Lorem ipsum dolor sit amet, consectetur." },
             { userPost: "Lorem ipsum dolor." },
+            { myPost: "MY POST ipsum dolor." },
             { userPost: "Lorem ipsum dolor sit." }
         ]
     },
@@ -60,17 +65,25 @@ export const data = {
     ]
 }
 
-export const addPost = (messagePost) => {
+
+
+export const addPost = () => {
 
     const newPost = {
-        id: 6,
+        id: data.profile.myPosts.length +1,
         myAvatar: "https://www.w3schools.com/howto/img_avatar2.png",
-        post: messagePost,
-        like: 0
+        post: data.profile.newPostText,
+        like: data.profile.myPosts.length
     }
 
     data.profile.myPosts.push(newPost)
-
+    updateNewPostText('')
     renderEntireThree(data)
 }
 
+
+export const updateNewPostText = (newText) => {
+    data.profile.newPostText = newText
+
+    renderEntireThree(data)
+}

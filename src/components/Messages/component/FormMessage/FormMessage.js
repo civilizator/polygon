@@ -1,18 +1,18 @@
-import classes from "./Message.module.scss"
+import classes from "./FormMessage.module.scss"
 import React from "react"
 
 
-export const Message = () => {
+export const FormMessage = () => {
     const textMessage = React.createRef()
 
-    const senMessage = () => {
+    const sendMessage = () => {
         const text = textMessage.current.value
         console.log( text )
+        textMessage.current.value = ''
     }
 
     return (
         <div className={ classes.containerMessage }>
-            {/*<h3>Add message</h3>*/}
 
             <div className={ classes.form }>
                 <p>
@@ -29,7 +29,7 @@ export const Message = () => {
                         name="submit"
                         value="Send message"
                         className={ classes.buttonSubmit }
-                        onClick={ senMessage }
+                        onClick={ sendMessage }
                     />
                 </p>
             </div>

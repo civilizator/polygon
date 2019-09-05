@@ -8,7 +8,7 @@ import { Header, Sidebar, Profile, Messages, News, Music, Settings, Footer } fro
 
 const App = (props) => {
     const { header, profile, messages, friends } = props.data
-    const { addPost } = props
+    const { addPost, updateNewPostText} = props
 
     return (
         <BrowserRouter>
@@ -19,7 +19,7 @@ const App = (props) => {
                 <div className="sidebar"><Sidebar friends={ friends } /></div>
 
                 <div className="content">
-                    <Route path="/profile" render={ () => <Profile profile={ profile } addPost={ addPost } /> } />
+                    <Route path="/profile" render={ () => <Profile profile={ profile } addPost={ addPost } updateNewPostText={ updateNewPostText } /> } />
                     <Route path="/messages" render={ () => <Messages messages={ messages } /> } />
                     <Route path="/news" component={ News }/>
                     <Route path="/music" component={ Music }/>

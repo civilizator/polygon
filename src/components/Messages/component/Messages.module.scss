@@ -41,12 +41,28 @@
   .message {
     grid-area: message;
     display: grid;
-    padding: 0 0 0 20px;
+    padding: 0 20px;
     //grid-template-rows: 1fr 200px;
     //grid-template-columns: repeat(2, 1fr);
     //grid-template-rows: 1fr 50px;
-    .post {
-      padding: 6px 8px;
+
+    .userPost {
+      background-color: #F0F8FF;
+      width: 60%;
+      border-radius: 8px;
+      margin: 0 auto 18px 0;
+      padding: 14px 20px;
+      box-shadow: 3px 4px 12px #00000012;
+    }
+
+    .myPost {
+      background-color: #358a9c;
+      color: #fff;
+      width: 60%;
+      border-radius: 8px;
+      margin: 0 0 18px auto;
+      padding: 14px 20px;
+      box-shadow: -3px 4px 12px #00000018;
     }
   }
 

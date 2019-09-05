@@ -3,12 +3,16 @@ import React from "react";
 
 
 export const Form = (props) => {
+    const { newPostText, addPost, updateNewPostText } = props
     const newPostElement = React.createRef()
 
-    const addPost = () => {
+    const submitPost = () => {
+        addPost()
+    }
+
+    const onChange = () => {
         const text = newPostElement.current.value
-        props.addPost(text)
-        newPostElement.current.value = ''
+        updateNewPostText(text)
     }
 
     return (
@@ -18,10 +22,12 @@ export const Form = (props) => {
             <div className={ classes.form }>
                 <p>
                 <textarea
+                    onChange={ onChange }
                     name="message"
                     placeholder="Enter message..."
                     className={ classes.textareaMessage }
                     ref={ newPostElement }
+                    value={ newPostText }
                 />
                 </p>
                 <p>
@@ -30,7 +36,7 @@ export const Form = (props) => {
                         name="submit"
                         value="Send message"
                         className={ classes.buttonSubmit }
-                        onClick={ addPost }
+                        onClick={ submitPost }
                     />
                 </p>
             </div>

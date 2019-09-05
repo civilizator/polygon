@@ -1,24 +1,28 @@
 import React from "react"
 import classes from "./Messages.module.scss"
 import { User } from "./User/User"
-import { UserPost } from "./UserPost/UserPost"
-import { Message } from "./Message/Message"
+import { UserMessage } from "./UserPost/UserMessage"
+import { FormMessage } from "./FormMessage/FormMessage"
 
 
 const Messages = (props) => {
     const { users, message } = props.messages
 
     const eachUser = users.map( (user) => {
-        return (
-            <User key={ user.userId } userId={ user.userId } userName={ user.userName }/>
-        )
-    } )
+            return (
+                <User key={ user.userId } userId={ user.userId } userName={ user.userName }/>
+            )
+        }
+    )
 
     const eachMessage = message.map( (message, i) => {
-        return (
-            <UserPost key={ i } userPost={ message.userPost }/>
-        )
-    } )
+            const { userPost, myPost } = message
+
+            return (
+                <UserMessage key={ i } userPost={ userPost } myPost={ myPost }/>
+            )
+        }
+    )
 
     return (
         <div className={ classes.messages }>
@@ -34,7 +38,7 @@ const Messages = (props) => {
                     { eachMessage }
                 </ul>
 
-                <Message/>
+                <FormMessage/>
 
             </div>
 
