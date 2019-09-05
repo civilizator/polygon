@@ -1,3 +1,6 @@
+
+import { renderEntireThree } from "./index"
+
 export const data = {
     //header
     header: {
@@ -13,11 +16,11 @@ export const data = {
         },
 
         myPosts: [
-            { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Hi", like: "1" },
-            { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "How are you?", like: "4" },
-            { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Hello", like: "3" },
-            { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "All just is fine for  me", like: "5" },
-            { myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Ok. I'm happy for you :)", like: "14" }
+            { id: 1, myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Hi", like: 1 },
+            { id: 2, myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "How are you?", like: 4 },
+            { id: 3, myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Hello", like: 3 },
+            { id: 4, myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "All just is fine for  me", like: 5 },
+            { id: 5, myAvatar: "https://www.w3schools.com/howto/img_avatar2.png", post: "Ok. I'm happy for you :)", like: 14 }
         ]
     },
 
@@ -25,13 +28,13 @@ export const data = {
 //Messages
     messages: {
         users: [
-            { userId: "1", userName: "Dan" },
-            { userId: "2", userName: "John" },
-            { userId: "3", userName: "Sarah" },
-            { userId: "4", userName: "Jax" },
-            { userId: "5", userName: "Helen" },
-            { userId: "6", userName: "Brain" },
-            { userId: "7", userName: "Katrine" }
+            { userId: 1, userName: "Dan" },
+            { userId: 2, userName: "John" },
+            { userId: 3, userName: "Sarah" },
+            { userId: 4, userName: "Jax" },
+            { userId: 5, userName: "Helen" },
+            { userId: 6, userName: "Brain" },
+            { userId: 7, userName: "Katrine" }
         ],
 
         message: [
@@ -56,3 +59,18 @@ export const data = {
         { name: "Vlada" }
     ]
 }
+
+export const addPost = (messagePost) => {
+
+    const newPost = {
+        id: 6,
+        myAvatar: "https://www.w3schools.com/howto/img_avatar2.png",
+        post: messagePost,
+        like: 0
+    }
+
+    data.profile.myPosts.push(newPost)
+
+    renderEntireThree(data)
+}
+

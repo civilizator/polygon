@@ -6,6 +6,7 @@ import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
 
 const Profile = (props) => {
     const { infoProfile, myPosts } = props.profile
+    const { addPost } = props
 
     return (
         <div className={ classes.profile }>
@@ -15,7 +16,7 @@ const Profile = (props) => {
                 descriptionProfile={ infoProfile.descriptionProfile }
             />
 
-            <MyPosts myPosts={ myPosts }/>
+            <MyPosts myPosts={ myPosts } addPost={ addPost } />
         </div>
     )
 }

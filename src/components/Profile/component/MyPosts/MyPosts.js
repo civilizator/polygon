@@ -6,14 +6,26 @@ import { Post } from "./Post/Post"
 
 
 export const MyPosts = (props) => {
-    const { myPosts } = props
+    const { myPosts, addPost } = props
 
     const Posts = myPosts.map( (posts, i) => {
-        const { myAvatar, post, like } = posts
+        const { id, myAvatar, post, like } = posts
         return (
-            <Post key={ i } myAvatar={ myAvatar } messagePost={ post } likeCounter={ like }/>
+            <Post key={ id } myAvatar={ myAvatar } messagePost={ post } likeCounter={ like }/>
         )
     } )
 
-    return <div className={ classes.MyPosts }><Form/> { Posts }</div>
+
+    // const addPost = (e) => {
+    //     e.preventDefault();
+    //     const text = e.target.elements.message.value
+    //     console.log( text )
+    // }
+
+    return (
+        <div className={ classes.MyPosts }>
+            <Form addPost={ addPost } />
+            { Posts }
+        </div>
+    )
 }

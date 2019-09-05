@@ -2,6 +2,7 @@ import React from "react"
 import classes from "./Messages.module.scss"
 import { User } from "./User/User"
 import { UserPost } from "./UserPost/UserPost"
+import { Message } from "./Message/Message"
 
 
 const Messages = (props) => {
@@ -32,7 +33,11 @@ const Messages = (props) => {
                 <ul>
                     { eachMessage }
                 </ul>
+
+                <Message/>
+
             </div>
+
 
         </div>
     )

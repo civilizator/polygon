@@ -1,19 +1,18 @@
-import classes from "./Post.module.scss";
-import React from "react";
+import classes from "./Message.module.scss"
+import React from "react"
 
 
-export const Form = (props) => {
-    const newPostElement = React.createRef()
+export const Message = () => {
+    const textMessage = React.createRef()
 
-    const addPost = () => {
-        const text = newPostElement.current.value
-        props.addPost(text)
-        newPostElement.current.value = ''
+    const senMessage = () => {
+        const text = textMessage.current.value
+        console.log( text )
     }
 
     return (
-        <div className={ classes.title }>
-            <h3>My posts</h3>
+        <div className={ classes.containerMessage }>
+            {/*<h3>Add message</h3>*/}
 
             <div className={ classes.form }>
                 <p>
@@ -21,7 +20,7 @@ export const Form = (props) => {
                     name="message"
                     placeholder="Enter message..."
                     className={ classes.textareaMessage }
-                    ref={ newPostElement }
+                    ref={ textMessage }
                 />
                 </p>
                 <p>
@@ -30,7 +29,7 @@ export const Form = (props) => {
                         name="submit"
                         value="Send message"
                         className={ classes.buttonSubmit }
-                        onClick={ addPost }
+                        onClick={ senMessage }
                     />
                 </p>
             </div>

@@ -4,12 +4,12 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { data } from "./Data"
+import { data, addPost } from './Data'
 
-
-ReactDOM.render( <App
-    data={ data }
-/>, document.getElementById( 'root' ) );
+export const renderEntireThree = (props) => {
+    ReactDOM.render( <App data={ props } addPost={ addPost } />, document.getElementById( 'root' ) );
+}
+renderEntireThree(data)
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
