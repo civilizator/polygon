@@ -4,12 +4,33 @@ import './index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-import { data, addPost, updateNewPostText } from './Data'
+import { store } from './State'
+
+const binding = (giveContext, giveProps) => {
+    let key
+    for (key in giveContext) {
+        if (typeof giveContext[key] === 'function') {
+            giveProps[key] = giveContext[key].bind( giveContext );
+        }
+    }
+}
 
 export const renderEntireThree = (props) => {
-    ReactDOM.render( <App data={ props } addPost={ addPost } updateNewPostText={ updateNewPostText } />, document.getElementById( 'root' ) );
+
+    binding(store, props)
+
+    ReactDOM.render(
+        <App
+            data={ props.getState() }
+            addPost={ props.addPost }
+            updateNewPostText={ props.updateNewPostText }
+        />,
+        document.getElementById( 'root' ) );
 }
-renderEntireThree(data)
+
+renderEntireThree(store)
+
+store.subscribe( renderEntireThree )
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
