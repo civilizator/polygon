@@ -9,21 +9,20 @@ import { store } from './State'
 const binding = (giveContext, giveProps) => {
     let key
     for (key in giveContext) {
-        if (typeof giveContext[key] === 'function') {
-            giveProps[key] = giveContext[key].bind( giveContext );
+        if (giveContext.hasOwnProperty( key ) && typeof giveContext[key] === 'function') {
+            giveProps[key] = giveContext[key].bind( giveContext )
         }
     }
 }
 
 export const renderEntireThree = (props) => {
-
     binding(store, props)
+    const  { dispatch } = props
 
     ReactDOM.render(
         <App
             data={ props.getState() }
-            addPost={ props.addPost }
-            updateNewPostText={ props.updateNewPostText }
+            dispatch={ dispatch }
         />,
         document.getElementById( 'root' ) );
 }

@@ -63,35 +63,39 @@ export let store = {
             { name: "Vlada" }
         ]
     },
-
-    getState() {
-      return this._data
-    },
-
-    addPost() {
-        const newPost = {
-            id: this._data.profile.myPosts.length + 1,
-            myAvatar: this._data.profile.myPosts[0].myAvatar,
-            post: this._data.profile.newPostText,
-            like: this._data.profile.myPosts.length
-        }
-
-        this._data.profile.myPosts.push( newPost )
-        this._data.profile.newPostText = ''
-        this._callSubscriber(this._data)
-    },
-
-    updateNewPostText(newText) {
-        this._data.profile.newPostText = newText
-        this._callSubscriber(this._data)
-    },
-
     _callSubscriber() {
         console.log( 'renderEntireThree worked' )
     },
 
+    getState() {
+      return this._data
+    },
     subscribe(observer) {
         this._callSubscriber = observer
+    },
+
+    dispatch(action) {
+
+        if (action.type === 'ADD-POST') {
+
+            const newPost = {
+                id: this._data.profile.myPosts.length + 1,
+                myAvatar: this._data.profile.myPosts[0].myAvatar,
+                post: this._data.profile.newPostText,
+                like: this._data.profile.myPosts.length
+            }
+
+            this._data.profile.myPosts.push( newPost )
+            this._data.profile.newPostText = ''
+            this._callSubscriber( this._data )
+
+        } else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+
+            this._data.profile.newPostText = action.newText
+            this._callSubscriber( this._data )
+
+        }
+
     }
 }
 

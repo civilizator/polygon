@@ -3,16 +3,17 @@ import React from "react";
 
 
 export const Form = (props) => {
-    const { newPostText, addPost, updateNewPostText } = props
+    const { newPostText, dispatch } = props
     const newPostElement = React.createRef()
 
     const submitPost = () => {
-        addPost()
+        dispatch({type: 'ADD-POST'})
     }
 
     const onChange = () => {
         const text = newPostElement.current.value
-        updateNewPostText(text)
+        const action = {type: 'UPDATE-NEW-POST-TEXT', newText: text}
+        dispatch(action)
     }
 
     return (

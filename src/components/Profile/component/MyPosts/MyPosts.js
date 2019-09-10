@@ -5,7 +5,7 @@ import { Post } from "./Post/Post"
 
 
 export const MyPosts = (props) => {
-    const { myPosts, newPostText, addPost, updateNewPostText } = props
+    const { myPosts, newPostText, dispatch } = props
 
     const Posts = myPosts.map( (posts, i) => {
         const { id, myAvatar, post, like } = posts
@@ -23,7 +23,7 @@ export const MyPosts = (props) => {
 
     return (
         <div className={ classes.MyPosts }>
-            <Form addPost={ addPost } newPostText={ newPostText }  updateNewPostText={ updateNewPostText } />
+            <Form dispatch={ dispatch } newPostText={ newPostText } />
             { Posts }
         </div>
     )
