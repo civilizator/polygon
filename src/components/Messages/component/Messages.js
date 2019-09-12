@@ -6,7 +6,8 @@ import { FormMessage } from "./FormMessage/FormMessage"
 
 
 const Messages = (props) => {
-    const { users, message } = props.messages
+    const { users, message, newMessageText } = props.messages
+    const { dispatch } = props
 
     const eachUser = users.map( (user) => {
             return (
@@ -15,11 +16,11 @@ const Messages = (props) => {
         }
     )
 
-    const eachMessage = message.map( (message, i) => {
-            const { userPost, myPost } = message
+    const eachMessage = message.map( (message ) => {
+            const { id, userPost, myPost } = message
 
             return (
-                <UserMessage key={ i } userPost={ userPost } myPost={ myPost }/>
+                <UserMessage key={ id } userPost={ userPost } myPost={ myPost }/>
             )
         }
     )
@@ -38,7 +39,7 @@ const Messages = (props) => {
                     { eachMessage }
                 </ul>
 
-                <FormMessage/>
+                <FormMessage dispatch={ dispatch } newMessageText={ newMessageText } />
 
             </div>
 

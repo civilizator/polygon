@@ -8,11 +8,12 @@ export const MyPosts = (props) => {
     const { myPosts, newPostText, dispatch } = props
 
     const Posts = myPosts.map( (posts, i) => {
-        const { id, myAvatar, post, like } = posts
-        return (
-            <Post key={ id } myAvatar={ myAvatar } messagePost={ post } likeCounter={ like }/>
-        )
-    } )
+            const { id, myAvatar, post, like } = posts
+            return (
+                <Post key={ id } myAvatar={ myAvatar } messagePost={ post } likeCounter={ like }/>
+            )
+        }
+    )
 
 
     // const addPost = (e) => {

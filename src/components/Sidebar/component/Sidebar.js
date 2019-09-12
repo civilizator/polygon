@@ -5,7 +5,7 @@ import { Friends } from "./Friends/Friends"
 
 
 const Sidebar = (props) => {
-    const { friends } = props
+    const { sidebar } = props
 
     return (
         <div className={ classes.sidebar }>
@@ -33,7 +33,7 @@ const Sidebar = (props) => {
                     </ul>
                 </nav>
 
-                <Friends friends={ friends }/>
+                <Friends sidebar={ sidebar }/>
 
             </div>
         </div>

@@ -3,7 +3,7 @@ import classes from "./Friends.module.scss"
 
 
 export const Friends = (props) => {
-    const { friends } = props
+    const { friends } = props.sidebar
 
     const mate = friends.map( (friend, i) => {
         return (
@@ -16,7 +16,7 @@ export const Friends = (props) => {
             <h3>Friends</h3>
             <div className={ classes.mates }>
                 { mate }
-                <div className={classes.clearedFloat}></div>
+                <div className={ classes.clearedFloat }></div>
             </div>
         </div>
     )

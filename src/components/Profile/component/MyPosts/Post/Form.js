@@ -1,5 +1,7 @@
-import classes from "./Post.module.scss";
-import React from "react";
+import classes from "./Post.module.scss"
+import React from "react"
+import { submitPostCreator, updatePostCreator } from "../../../../../redux/profile-reducer"
+
 
 
 export const Form = (props) => {
@@ -7,13 +9,13 @@ export const Form = (props) => {
     const newPostElement = React.createRef()
 
     const submitPost = () => {
-        dispatch({type: 'ADD-POST'})
+        dispatch( submitPostCreator() )
     }
 
     const onChange = () => {
         const text = newPostElement.current.value
-        const action = {type: 'UPDATE-NEW-POST-TEXT', newText: text}
-        dispatch(action)
+        const action = updatePostCreator( text )
+        dispatch( action )
     }
 
     return (

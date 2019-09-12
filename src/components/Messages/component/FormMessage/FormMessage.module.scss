@@ -28,6 +28,22 @@
       background: #f8f8f8;
       box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.22);
 
+      &::-webkit-scrollbar,
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-thumb {
+        width: 12px;
+      }
+
+      &::-webkit-scrollbar-track,
+      &::-webkit-scrollbar-thumb {
+        background: #e1e8ee;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-bottom-right-radius: 5px;
+        background: #358a9c;
+      }
+
       &:hover {
         background: #f6fbfb;
       }

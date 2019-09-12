@@ -7,7 +7,7 @@ import { Header, Sidebar, Profile, Messages, News, Music, Settings, Footer } fro
 
 
 const App = (props) => {
-    const { header, profile, messages, friends } = props.data
+    const { header, profile, messages, sidebar } = props.store
     const { dispatch } = props
 
     return (
@@ -16,11 +16,11 @@ const App = (props) => {
 
                 <div className="header"><Header header={ header }/></div>
 
-                <div className="sidebar"><Sidebar friends={ friends } /></div>
+                <div className="sidebar"><Sidebar sidebar={ sidebar } /></div>
 
                 <div className="content">
                     <Route path="/profile" render={ () => <Profile profile={ profile } dispatch={ dispatch } /> } />
-                    <Route path="/messages" render={ () => <Messages messages={ messages } /> } />
+                    <Route path="/messages" render={ () => <Messages messages={ messages } dispatch={ dispatch } /> } />
                     <Route path="/news" component={ News }/>
                     <Route path="/music" component={ Music }/>
                     <Route path="/settings" component={ Settings }/>
