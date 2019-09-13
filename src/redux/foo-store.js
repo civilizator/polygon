@@ -3,7 +3,7 @@ import messagesReducer from "./messages-reducer"
 import sidebarReducer from "./sidebar-reducer"
 
 
-export let store = {
+export const store = {
     _state: {
         //header
         header: {
