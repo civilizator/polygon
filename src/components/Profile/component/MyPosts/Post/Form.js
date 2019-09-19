@@ -1,21 +1,18 @@
 import classes from "./Post.module.scss"
 import React from "react"
-import { submitPostCreator, updatePostCreator } from "../../../../../redux/profile-reducer"
-
 
 
 export const Form = (props) => {
-    const { newPostText, dispatch } = props
+    const { newPostText, submitPost, onChange } = props
     const newPostElement = React.createRef()
 
-    const submitPost = () => {
-        dispatch( submitPostCreator() )
+    const submitPostForm = () => {
+        submitPost()
     }
 
-    const onChange = () => {
+    const onChangeFom = () => {
         const text = newPostElement.current.value
-        const action = updatePostCreator( text )
-        dispatch( action )
+        onChange( text )
     }
 
     return (
@@ -25,7 +22,7 @@ export const Form = (props) => {
             <div className={ classes.form }>
                 <p>
                 <textarea
-                    onChange={ onChange }
+                    onChange={ onChangeFom }
                     name="message"
                     placeholder="Enter message..."
                     className={ classes.textareaMessage }
@@ -39,7 +36,7 @@ export const Form = (props) => {
                         name="submit"
                         value="Send message"
                         className={ classes.buttonSubmit }
-                        onClick={ submitPost }
+                        onClick={ submitPostForm }
                     />
                 </p>
             </div>

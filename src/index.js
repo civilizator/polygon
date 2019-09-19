@@ -7,21 +7,20 @@ import * as serviceWorker from './serviceWorker'
 import store from './redux/store'
 
 const binding = (giveContext) => {
-    let key, inProps = {}
-    for (key in giveContext) {
-        if (giveContext.hasOwnProperty( key ) && typeof giveContext[key] === 'function') {
-            inProps[key] = giveContext[key].bind( giveContext )
+    let key, inProps = {}, ctx = giveContext
+    for (key in ctx) {
+        if (ctx.hasOwnProperty( key ) && typeof ctx[key] === 'function') {
+            inProps[key] = ctx[key].bind( ctx )
         }
     } return inProps
 }
 
-export const renderEntireThree = (props) => {
+const renderEntireThree = (props) => {
+
     props = binding( store )
 
-    const { dispatch } = props
-
     ReactDOM.render(
-        <App store={ props.getState() } dispatch={ dispatch } />,
+        <App store={ props } />,
         document.getElementById( 'root' ) )
 }
 

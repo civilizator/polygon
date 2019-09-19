@@ -7,20 +7,19 @@ import { Header, Sidebar, Profile, Messages, News, Music, Settings, Footer } fro
 
 
 const App = (props) => {
-    const { header, profile, messages, sidebar } = props.store
-    const { dispatch } = props
+    const { store } = props
 
     return (
         <BrowserRouter>
             <div className="app-wrapper">
 
-                <div className="header"><Header header={ header }/></div>
+                <div className="header"><Header store={ store } /></div>
 
-                <div className="sidebar"><Sidebar sidebar={ sidebar } /></div>
+                <div className="sidebar"><Sidebar store={ store } /></div>
 
                 <div className="content">
-                    <Route path="/profile" render={ () => <Profile profile={ profile } dispatch={ dispatch } /> } />
-                    <Route path="/messages" render={ () => <Messages messages={ messages } dispatch={ dispatch } /> } />
+                    <Route path="/profile" render={ () => <Profile store={ store } /> } />
+                    <Route path="/messages" render={ () => <Messages store={ store } /> } />
                     <Route path="/news" component={ News }/>
                     <Route path="/music" component={ Music }/>
                     <Route path="/settings" component={ Settings }/>

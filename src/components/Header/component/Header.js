@@ -2,7 +2,7 @@ import React from "react"
 import classes from "./Header.module.scss"
 
 const Header = (props) => {
-    const { header } = props
+    const { header } = props.store.getState()
 
     return (
         <header className={ classes.header }>

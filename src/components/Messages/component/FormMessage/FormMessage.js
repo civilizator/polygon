@@ -1,20 +1,18 @@
-import classes from "./FormMessage.module.scss"
 import React from "react"
-
-import { sendMessageToUserCreator, updateMessageToUserCreator } from "../../../../redux/messages-reducer"
+import classes from "./FormMessage.module.scss"
 
 
 export const FormMessage = (props) => {
-    const { newMessageText, dispatch } = props
+    const { newMessageText, dispatch, sendMessage, onChange } = props
     const newMessageElement = React.createRef()
 
-    const sendMessage = () => {
-        dispatch( sendMessageToUserCreator() )
+    const sendMessageForm = () => {
+        sendMessage()
     }
 
-    const onChange = () => {
+    const onChangeForm = () => {
         const text = newMessageElement.current.value
-        const action = updateMessageToUserCreator( text )
+        const action = onChange( text )
         dispatch( action )
     }
 
@@ -24,7 +22,7 @@ export const FormMessage = (props) => {
             <div className={ classes.form }>
                 <p>
                 <textarea
-                    onChange={ onChange }
+                    onChange={ onChangeForm }
                     name="message"
                     placeholder="Enter message..."
                     className={ classes.textareaMessage }
@@ -38,7 +36,7 @@ export const FormMessage = (props) => {
                         name="submit"
                         value="Send message"
                         className={ classes.buttonSubmit }
-                        onClick={ sendMessage }
+                        onClick={ sendMessageForm }
                     />
                 </p>
             </div>

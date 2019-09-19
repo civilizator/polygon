@@ -3,7 +3,7 @@ import React from "react";
 
 
 export const ProfileInfo = (props) => {
-    const { bgUrl, profileImgUrl, descriptionProfile } = props
+    const { bgUrl, profileImgUrl, descriptionProfile } = props.infoProfile
 
     return (
         <>

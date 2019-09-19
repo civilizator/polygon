@@ -5,18 +5,13 @@ import { ProfileInfo } from "./ProfileInfo/ProfileInfo"
 
 
 const Profile = (props) => {
-    const { infoProfile, myPosts, newPostText } = props.profile
-    const { dispatch  } = props
+    const { infoProfile, myPosts, newPostText } = props.store.getState().profile
+    const { dispatch } = props.store
 
     return (
         <div className={ classes.profile }>
-            <ProfileInfo
-                bgUrl={ infoProfile.bgUrl }
-                profileImgUrl={ infoProfile.profileImgUrl }
-                descriptionProfile={ infoProfile.descriptionProfile }
-            />
-
-            <MyPosts myPosts={ myPosts } newPostText={ newPostText } dispatch={ dispatch } />
+            <ProfileInfo infoProfile={ infoProfile }/>
+            <MyPosts myPosts={ myPosts } newPostText={ newPostText } dispatch={ dispatch }/>
         </div>
     )
 }

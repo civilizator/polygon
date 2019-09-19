@@ -2,12 +2,11 @@ import React from "react"
 import classes from "./Messages.module.scss"
 import { User } from "./User/User"
 import { UserMessage } from "./UserPost/UserMessage"
-import { FormMessage } from "./FormMessage/FormMessage"
+import { FormMessageContainer } from "./FormMessage/FormMessageContainer"
 
 
 const Messages = (props) => {
-    const { users, message, newMessageText } = props.messages
-    const { dispatch } = props
+    const { users, message } = props.store.getState().messages
 
     const eachUser = users.map( (user) => {
             return (
@@ -39,7 +38,7 @@ const Messages = (props) => {
                     { eachMessage }
                 </ul>
 
-                <FormMessage dispatch={ dispatch } newMessageText={ newMessageText } />
+                <FormMessageContainer store={ props.store } />
 
             </div>
 

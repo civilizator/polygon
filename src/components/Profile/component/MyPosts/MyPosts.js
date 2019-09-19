@@ -1,7 +1,7 @@
 import React from "react"
 import classes from "./MyPosts.module.scss"
-import { Form } from "./Post/Form"
 import { Post } from "./Post/Post"
+import { FormContainer } from "./Post/FormContainer";
 
 
 export const MyPosts = (props) => {
@@ -24,7 +24,7 @@ export const MyPosts = (props) => {
 
     return (
         <div className={ classes.MyPosts }>
-            <Form dispatch={ dispatch } newPostText={ newPostText } />
+            <FormContainer newPostText={ newPostText } dispatch={ dispatch } />
             { Posts }
         </div>
     )
