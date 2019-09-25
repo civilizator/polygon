@@ -1,9 +1,10 @@
-import classes from "../Profile.module.scss";
-import React from "react";
+import classes from "../Profile.module.scss"
+import React from "react"
+import { connect } from "react-redux"
 
 
-export const ProfileInfo = (props) => {
-    const { bgUrl, profileImgUrl, descriptionProfile } = props.infoProfile
+const ProfileInfoComponent = (props) => {
+    const { bgUrl, profileImgUrl, descriptionProfile } = props
 
     return (
         <>
@@ -25,3 +26,16 @@ export const ProfileInfo = (props) => {
         </>
     )
 }
+
+
+const mapStateToProps = (state) => {
+    const profile = state.profile.infoProfile
+    return {
+        bgUrl: profile.bgUrl,
+        profileImgUrl: profile.profileImgUrl,
+        descriptionProfile: profile.descriptionProfile
+    }
+}
+
+export const ProfileInfo = connect( mapStateToProps )( ProfileInfoComponent )
+

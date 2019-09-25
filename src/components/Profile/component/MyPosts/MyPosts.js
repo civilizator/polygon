@@ -1,11 +1,12 @@
 import React from "react"
 import classes from "./MyPosts.module.scss"
 import { Post } from "./Post/Post"
-import { FormContainer } from "./Post/FormContainer";
+import { FormContainer } from "./Post/FormContainer"
+import { connect } from "react-redux"
 
 
-export const MyPosts = (props) => {
-    const { myPosts, newPostText, dispatch } = props
+ const MyPostsComponent = (props) => {
+    const { myPosts } = props
 
     const Posts = myPosts.map( (posts, i) => {
             const { id, myAvatar, post, like } = posts
@@ -24,8 +25,17 @@ export const MyPosts = (props) => {
 
     return (
         <div className={ classes.MyPosts }>
-            <FormContainer newPostText={ newPostText } dispatch={ dispatch } />
+            <FormContainer />
             { Posts }
         </div>
     )
 }
+
+
+const mapStateToProps = (state) => {
+    return {
+        myPosts: state.profile.myPosts
+    }
+}
+
+export const MyPosts = connect( mapStateToProps )( MyPostsComponent )

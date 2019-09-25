@@ -5,6 +5,7 @@ import App from './App'
 import * as serviceWorker from './serviceWorker'
 
 import store from './redux/store'
+import { Provider } from "react-redux"
 
 const binding = (giveContext) => {
     let key, inProps = {}, ctx = giveContext
@@ -12,21 +13,24 @@ const binding = (giveContext) => {
         if (ctx.hasOwnProperty( key ) && typeof ctx[key] === 'function') {
             inProps[key] = ctx[key].bind( ctx )
         }
-    } return inProps
+    }
+    return inProps
 }
 
-const renderEntireThree = (props) => {
+const renderEntireThree = () => {
 
-    props = binding( store )
+    // props = binding( store )
 
     ReactDOM.render(
-        <App store={ props } />,
+        <Provider store={ store }>
+            <App/>
+        </Provider>,
         document.getElementById( 'root' ) )
 }
 
-renderEntireThree( store  )
+renderEntireThree()
 
-store.subscribe( () => renderEntireThree( store.getState()  ) )
+store.subscribe( () => renderEntireThree() )
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.

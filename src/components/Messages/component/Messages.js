@@ -3,10 +3,10 @@ import classes from "./Messages.module.scss"
 import { User } from "./User/User"
 import { UserMessage } from "./UserPost/UserMessage"
 import { FormMessageContainer } from "./FormMessage/FormMessageContainer"
+import { connect } from "react-redux"
 
-
-const Messages = (props) => {
-    const { users, message } = props.store.getState().messages
+const MessagesComponent = (props) => {
+    const { users, message } = props
 
     const eachUser = users.map( (user) => {
             return (
@@ -26,7 +26,6 @@ const Messages = (props) => {
 
     return (
         <div className={ classes.messages }>
-
             <div className={ classes.users }>
                 <ul>
                     { eachUser }
@@ -38,13 +37,20 @@ const Messages = (props) => {
                     { eachMessage }
                 </ul>
 
-                <FormMessageContainer store={ props.store } />
+                <FormMessageContainer />
 
             </div>
-
-
         </div>
     )
 }
+
+const mapStateToProps = (state) => {
+    return {
+        users: state.messages.users,
+        message: state.messages.message
+    }
+}
+
+const Messages = connect( mapStateToProps )( MessagesComponent )
 
 export default Messages

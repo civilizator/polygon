@@ -1,21 +1,27 @@
 
-import React from "react"
 import { submitPostCreator, updatePostCreator } from "../../../../../redux/profile-reducer"
 import { Form } from "./Form"
+import { connect } from "react-redux"
 
 
-export const FormContainer = (props) => {
-    const { newPostText, dispatch } = props
-
-    const submitPost = () => {
-        dispatch( submitPostCreator() )
+const mapStateToProps = (state) => {
+    return {
+        newPostText: state.profile.newPostText
     }
-
-    const onChange = (text) => {
-        const action = updatePostCreator( text )
-        dispatch( action )
-    }
-
-    return ( <Form newPostText={ newPostText } submitPost={ submitPost } onChange={ onChange } />)
-
 }
+
+const mapDispatchToProps = (dispatch) => {
+
+    return {
+        submitPost: () => {
+            dispatch( submitPostCreator() )
+        },
+        onChange: (text) => {
+            dispatch( updatePostCreator( text ) )
+        }
+    }
+}
+
+export const FormContainer = connect( mapStateToProps, mapDispatchToProps )( Form )
+
+

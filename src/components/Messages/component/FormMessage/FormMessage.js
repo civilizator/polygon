@@ -3,7 +3,7 @@ import classes from "./FormMessage.module.scss"
 
 
 export const FormMessage = (props) => {
-    const { newMessageText, dispatch, sendMessage, onChange } = props
+    const { newMessageText, sendMessage, onChange } = props
     const newMessageElement = React.createRef()
 
     const sendMessageForm = () => {
@@ -12,8 +12,7 @@ export const FormMessage = (props) => {
 
     const onChangeForm = () => {
         const text = newMessageElement.current.value
-        const action = onChange( text )
-        dispatch( action )
+        onChange( text )
     }
 
     return (

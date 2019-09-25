@@ -4,8 +4,7 @@ import classes from "./Sidebar.module.scss"
 import { Friends } from "./Friends/Friends"
 
 
-const Sidebar = (props) => {
-    const { sidebar } = props.store.getState()
+const Sidebar = () => {
 
     return (
         <div className={ classes.sidebar }>
@@ -33,7 +32,7 @@ const Sidebar = (props) => {
                     </ul>
                 </nav>
 
-                <Friends sidebar={ sidebar }/>
+                <Friends />
 
             </div>
         </div>

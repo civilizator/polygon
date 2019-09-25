@@ -11,8 +11,7 @@ export const Form = (props) => {
     }
 
     const onChangeFom = () => {
-        const text = newPostElement.current.value
-        onChange( text )
+        onChange( newPostElement.current.value )
     }
 
     return (
