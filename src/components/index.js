@@ -6,5 +6,5 @@ import Messages from "./Messages"
 import News from "./News"
 import Music from "./Music"
 import Settings from "./Settings"
-
-export {Footer, Header, Profile, Messages, News, Music, Settings, Sidebar}
+import FindUsers from "./FindUsres"
+export {Footer, Header, Profile, Messages, FindUsers, News, Music, Settings, Sidebar}

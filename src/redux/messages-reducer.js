@@ -34,26 +34,36 @@ const initialState = {
                 `
 }
 
-const messagesReducer = (state = initialState, action) => {
+
+const  messagesReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
         case SEND_MESSAGE_TO_USER:
+
             const newMessage = {
                 id: state.message.length + 1,
                 myPost: state.newMessageText
             }
-            state.message.push( newMessage )
-            state.newMessageText = ''
-            break
-        case UPDATE_NEW_TEXT_SEND_MESSAGE_TO_USER:
-            state.newMessageText = action.messageText
-            break
-        default:
-            return state
-    }
 
-    return state
+            return {
+                ...state,
+                message: [ ...state.message, newMessage ],
+                newMessageText: ''
+            }
+
+        case UPDATE_NEW_TEXT_SEND_MESSAGE_TO_USER:
+
+            return {
+                ...state,
+                newMessageText: action.messageText
+            }
+
+        default:
+
+            return state
+
+    }
 }
 
 export const
@@ -66,3 +76,37 @@ export const
 
 
 export default messagesReducer
+
+// const structuralClone = obj => new Notification( '', { data: obj, silent: true } ).data
+
+// const  messagesReducer = (state = initialState, action) => {
+    // const state = structuralClone(stateObj)
+    // const state = JSON.parse( JSON.stringify( stateObj ) )
+    // let stateClone = {
+    //     ...state,
+    //     message: [ ...state.message ]
+    // }
+    // stateClone.message = [ ...state ]
+    // stateClone.message = {...state.message }
+    // stateClone.newMessageText = { ...state.newMessageText }
+
+//     switch (action.type) {
+//
+//         case SEND_MESSAGE_TO_USER:
+//             const newMessage = {
+//                 id: state.message.length + 1,
+//                 myPost: state.newMessageText
+//             }
+//             stateClone.message.push( newMessage )
+//             stateClone.newMessageText = ''
+//             break
+//         case UPDATE_NEW_TEXT_SEND_MESSAGE_TO_USER:
+//             stateClone.newMessageText = action.messageText
+//             break
+//         default:
+//             return stateClone
+//     }
+//
+//     return stateClone
+// }
+

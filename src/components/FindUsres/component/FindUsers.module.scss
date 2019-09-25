@@ -1,0 +1,60 @@
+.findUsers {
+  background-color: #f8fbfb;
+  min-height: 100%;
+
+  h1 {
+    padding-top: 20px;
+    margin: 0 auto 50px 30px;
+    color: #cbd0d2;
+  }
+
+  .users {
+    width: 90%;
+    height: 150px;
+
+    margin: 0 auto 30px 30px;
+    display: grid;
+    grid-template-areas: "userInfo userEvent";
+    grid-template-columns: 6fr 20fr;
+
+    .userInfo {
+      grid-area: userInfo;
+      padding-top: 8px;
+
+      .userPick {
+        width: 76px;
+        height: 76px;
+        border-radius: 100%;
+        background-color: #d8e0e2;
+        margin: 0 auto 20px;
+      }
+
+      .buttonFollow {
+        width: 70%;
+        height: 40px;
+        border-radius: 4px;
+        background-color: #d8e0e2;
+        text-align: center;
+        color: #fff;
+        line-height: 40px;
+        font-size: 20px;
+        margin: 0 auto;
+      }
+    }
+
+    .userEvent {
+      grid-area: userEvent;
+      //width: 80%;
+      //height: 100%;
+      border: 1px solid #d8e0e2;
+      border-radius: 4px;
+      box-sizing: border-box;
+      background-color: #ffffff;
+    }
+
+  }
+
+
+
+}
+

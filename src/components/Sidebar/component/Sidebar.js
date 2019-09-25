@@ -27,6 +27,12 @@ const Sidebar = () => {
 
                     <ul>
                         <li>
+                            <NavLink to="/find-users" activeClassName={ classes.active }>Find Users</NavLink>
+                        </li>
+                    </ul>
+
+                    <ul>
+                        <li>
                             <NavLink to="/settings" activeClassName={ classes.active }>Settings</NavLink>
                         </li>
                     </ul>

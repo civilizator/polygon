@@ -18,6 +18,7 @@ const initialState = {
     newPostText: "text"
 }
 
+
 const profileReducer = (state = initialState, action) => {
 
     switch (action.type) {
@@ -28,17 +29,20 @@ const profileReducer = (state = initialState, action) => {
                 post: state.newPostText,
                 like: state.myPosts.length
             }
-            state.myPosts.push( newPost )
-            state.newPostText = ''
-            break
+
+            return {
+                ...state,
+                myPosts: [ ...state.myPosts, newPost ],
+                newPostText: ''
+            }
         case  UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText
-            break
+            return {
+                ...state,
+                newPostText: action.newText
+            }
         default:
             return state
     }
-
-    return state
 }
 
 export const
@@ -50,3 +54,40 @@ export const
     }
 
 export default profileReducer
+
+
+// const profileReducer = (state = initialState, action) => {
+//     const stateClone = {
+//         ...state,
+//         myPosts: [ ...state.myPosts ]
+//     }
+//     switch (action.type) {
+//         case  ADD_POST:
+//             const newPost = {
+//                 id: state.myPosts.length + 1,
+//                 myAvatar: state.myPosts[0].myAvatar,
+//                 post: state.newPostText,
+//                 like: state.myPosts.length
+//             }
+//             stateClone.myPosts.push( newPost )
+//             stateClone.newPostText = ''
+//             break
+//         case  UPDATE_NEW_POST_TEXT:
+//             stateClone.newPostText = action.newText
+//             break
+//         default:
+//             return state
+//     }
+//
+//     return stateClone
+// }
+//
+// export const
+//     submitPostCreator = () => {
+//         return { type: ADD_POST }
+//     },
+//     updatePostCreator = (text) => {
+//         return { type: UPDATE_NEW_POST_TEXT, newText: text }
+//     }
+//
+// export default profileReducer
