@@ -35,28 +35,28 @@ const initialState = {
 }
 
 
-const  messagesReducer = (state = initialState, action) => {
+const messagesReducer = (state = initialState, action) => {
 
     switch (action.type) {
 
         case SEND_MESSAGE_TO_USER:
 
             const newMessage = {
-                id: state.message.length + 1,
-                myPost: state.newMessageText
+                id: state.message.length + 1
+                , myPost: state.newMessageText
             }
 
             return {
                 ...state,
-                message: [ ...state.message, newMessage ],
-                newMessageText: ''
+                message: [ ...state.message, newMessage ]
+                , newMessageText: ''
             }
 
         case UPDATE_NEW_TEXT_SEND_MESSAGE_TO_USER:
 
             return {
-                ...state,
-                newMessageText: action.messageText
+                ...state
+                , newMessageText: action.messageText
             }
 
         default:
