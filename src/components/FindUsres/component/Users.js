@@ -24,12 +24,7 @@ export const Users = (props) => {
         <div className={ classes.users }>
             <div className={ classes.userInfo }>
                 <div className={ classes.userPick }> </div>
-
                 <ButtonFollow userId={ userId } userFollow={userFollow} followToUser={followToUser}/>
-
-                {/*{ userFollow*/}
-                {/*    ? <p className={ classes.buttonFollow }>Follower</p>*/}
-                {/*    : <p className={ classes.buttonUnfollow} >Unfollower</p> }*/}
             </div>
             <div className={ classes.userEvent }>
                 <div className={ classes.userDescription }>

@@ -6,7 +6,7 @@ import * as serviceWorker from './serviceWorker'
 
 import store from './redux/store'
 import { Provider } from "react-redux"
-
+//50321cf7-3927-4fca-94fa-5438295b0ec3
 // const binding = (giveContext) => {
 //     let key, inProps = {}, ctx = giveContext
 //     for (key in ctx) {
