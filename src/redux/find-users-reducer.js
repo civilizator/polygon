@@ -34,7 +34,7 @@ const findUsersReducer = (state = initialState, action) => {
                 } )
             }
 
-            // const userId = action.getUserId - 1
+            // const userId = action.getUserId -1
             //     , checkUserFollow = state.users[userId].userFollow
             //     , setUserFollow = value => !value
             //
