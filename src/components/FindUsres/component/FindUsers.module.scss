@@ -8,6 +8,51 @@
     color: #cbd0d2;
   }
 
+  .containerPagination {
+    height: 40px;
+    margin-bottom: 30px;
+
+    ul {
+      display: table;
+      margin: 0 auto;
+
+      li {
+        position: relative;
+        overflow: hidden;
+        float: left;
+        font-weight: 100;
+        width: 30px;
+        height: 26px;
+        margin: 0 0 0 4px;
+        border-radius: 2px;
+        text-align: center;
+        line-height: 24px;
+        cursor: pointer;
+        background: #f8f8f8;
+        color: #516059;
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.12);
+
+        &:hover {
+          background: #f6fbfb;
+        }
+
+        &.active {
+          color: #003a18;
+          box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.12);
+        }
+
+        button {
+          width: inherit;
+          height: inherit;
+          border: none;
+          background: inherit;
+          outline: none;
+          cursor: inherit;
+        }
+      }
+    }
+  }
+
   .users {
     width: 90%;
     min-height: 150px;
@@ -42,7 +87,7 @@
         font-size: 18px;
         margin: 0 auto;
         cursor: pointer;
-        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.22);
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.12);
         transition: color .2s, box-shadow .1s, background .1s;
         display: block;
         outline: none;
@@ -53,7 +98,7 @@
         }
 
         &:active {
-          box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.22);
+          box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.12);
         }
       }
 
@@ -129,7 +174,7 @@
         cursor: pointer;
         background: #f8f8f8;
         color: #516059;
-        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.22);
+        box-shadow: 1px 1px 0 0 rgba(0, 0, 0, 0.12);
         transition: color .2s, box-shadow .1s, background .1s;
 
         &:hover {
@@ -137,7 +182,7 @@
         }
 
         &:active {
-          box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.22);
+          box-shadow: -1px -1px 0 0 rgba(0, 0, 0, 0.12);
         }
       }
 
