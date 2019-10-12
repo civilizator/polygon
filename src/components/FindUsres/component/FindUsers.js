@@ -3,7 +3,12 @@ import classes from "./FindUsers.module.scss"
 
 import {Users} from "./Users"
 import {connect} from "react-redux"
-import {setUsersCreator, userFollowCreator, activePageCreator} from "../../../redux/find-users-reducer"
+import {
+    setUsersCreator,
+    userFollowCreator,
+    activePageCreator,
+    totalUsersCountCreator
+} from "../../../redux/find-users-reducer"
 import * as axios from "axios";
 
 
@@ -11,10 +16,12 @@ class FindUsersComponent extends React.Component {
 
     componentDidMount() {
         if (this.props.users.length === 0) {
-            axios.get("https://social-network.samuraijs.com/api/1.0/users")
+        console.log('axios.get: ')
+            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
                 .then(res => {
                     // console.log('Response: ', res.data.items)
                     this.props.setUsers(res.data.items)
+                    this.props.setTotalUsersCount(res.data.totalCount)
                 })
         }
     }
@@ -24,6 +31,15 @@ class FindUsersComponent extends React.Component {
     getUsers = () => {
         console.log('getUsers: ')
 
+    }
+
+    pageChange = (page) => {
+        this.props.activePage(page)
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
+            .then(res => {
+                console.log('Response: ', res.data.items)
+                this.props.setUsers(res.data.items)
+            })
     }
 
     render() {
@@ -47,7 +63,7 @@ class FindUsersComponent extends React.Component {
         })
 
 
-        const pagesCount = this.props.totalUsersCount / this.props.pageSize
+        const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
         const pages = []
 
         for (let i = 1; i <= pagesCount; i++) {
@@ -55,12 +71,9 @@ class FindUsersComponent extends React.Component {
         }
 
         const pagination = pages.map((page) => {
-           const activeButton = () => {
-                this.props.activePage(page)
-            }
             return (
                 <li key={page} className={this.props.currentPage === page ? classes.active : ''}>
-                    <button onClick={activeButton}>{page}</button>
+                    <button onClick={() => this.pageChange(page)}>{page}</button>
                 </li>
             )
         })
@@ -171,6 +184,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         activePage: (numberPage) => {
             dispatch(activePageCreator(numberPage))
+        },
+        setTotalUsersCount: (totalUsersCount) => {
+            dispatch(totalUsersCountCreator(totalUsersCount))
         }
     }
 }

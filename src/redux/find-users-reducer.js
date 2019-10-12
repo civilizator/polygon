@@ -1,6 +1,7 @@
 const SET_USERS = 'SET-USERS'
 const FOLLOW_TO_USER = 'FOLLOW-TO-USER'
 const ACTIVE_PAGE = 'ACTIVE-PAGE'
+const TOTAL_USERS_COUNT = 'TOTAL-USERS-COUNT'
 
 const initialState = {
     users: [
@@ -12,8 +13,8 @@ const initialState = {
         // { id: 6, userFollow: false, userName: "Brain", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  },
         // { id: 7, userFollow: true, userName: "Katrine", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  }
     ]
-    , pageSize: 8
-    , totalUsersCount: 100
+    , totalUsersCount: 10
+    , pageSize: 3
     , currentPage: 1
 }
 
@@ -22,7 +23,7 @@ const findUsersReducer = (state = initialState, action) => {
         case SET_USERS: {
             return {
                 ...state
-                , users: [ ...state.users, ...action.users ]
+                , users: action.users
             }
         }
         case FOLLOW_TO_USER:
@@ -50,9 +51,17 @@ const findUsersReducer = (state = initialState, action) => {
             // }
 
         case ACTIVE_PAGE: {
+            // console.log(action.numberPage)
             return {
                 ...state
                 , currentPage: action.numberPage
+            }
+        }
+
+        case TOTAL_USERS_COUNT: {
+            return {
+                ...state
+                , totalUsersCount: action.totalUsersCount
             }
         }
 
@@ -71,6 +80,8 @@ export const
     , activePageCreator = (numberPage) => {
         return { type: ACTIVE_PAGE, numberPage: numberPage }
     }
-
+    , totalUsersCountCreator = (totalUsersCount) => {
+        return { type: TOTAL_USERS_COUNT, totalUsersCount: totalUsersCount }
+    }
 
 export default findUsersReducer
