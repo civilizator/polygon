@@ -15,7 +15,7 @@ const initialState = {
     ]
     , totalUsersCount: 10
     , pageSize: 3
-    , currentPage: 1
+    , currentPage: 2
 }
 
 const findUsersReducer = (state = initialState, action) => {
