@@ -2,109 +2,79 @@ import React from "react"
 import classes from "./FindUsers.module.scss"
 
 import {Users} from "./Users"
-import {connect} from "react-redux"
-import {
-    setUsersCreator,
-    userFollowCreator,
-    activePageCreator,
-    totalUsersCountCreator
-} from "../../../redux/find-users-reducer"
 import * as axios from "axios";
 
 
-class FindUsersComponent extends React.Component {
+const FindUsers = (props) => {
 
-    componentDidMount() {
-        if (this.props.users.length === 0) {
-        console.log('axios.get: ')
-            axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`)
-                .then(res => {
-                    // console.log('Response: ', res.data.items)
-                    this.props.setUsers(res.data.items)
-                    this.props.setTotalUsersCount(res.data.totalCount)
-                })
-        }
-    }
+    const { users, followToUser, totalUsersCount, pageSize, currentPage, pageChange } = props
 
-
-
-    getUsers = () => {
-        console.log('getUsers: ')
+    const getUsers = () => {
+        console.log( 'getUsers: ' )
 
     }
 
-    pageChange = (page) => {
-        this.props.activePage(page)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
-            .then(res => {
-                console.log('Response: ', res.data.items)
-                this.props.setUsers(res.data.items)
-            })
-    }
 
-    render() {
-
-        const eachUsers = this.props.users.map((user) => {
-            // console.log('this.props.users.map: ', user)
-            return (
-                <Users
-                    key={user.id}
-                    userId={user.id}
-                    userFollow={user.followed}
-                    userName={user.name}
-                    userCity={"user.userCity"}
-                    userCountry={"user.userCountry"}
-                    userStatus={"user.userStatus"}
-
-                    followToUser={this.props.followToUser}
-
-                />
-            )
-        })
-
-
-        const pagesCount = Math.ceil(this.props.totalUsersCount / this.props.pageSize)
-        const pages = []
-
-        for (let i = 1; i <= pagesCount; i++) {
-            pages.push(i)
-        }
-
-        const pagination = pages.map((page) => {
-            return (
-                <li key={page} className={this.props.currentPage === page ? classes.active : ''}>
-                    <button onClick={() => this.pageChange(page)}>{page}</button>
-                </li>
-            )
-        })
-
+    const eachUsers = users.map( (user) => {
         return (
-            <div className={classes.findUsers}>
-                <h1>Find Users</h1>
+            <Users
+                key={ user.id }
+                userId={ user.id }
+                userFollow={ user.followed }
+                userName={ user.name }
+                userCity={ "user.userCity" }
+                userCountry={ "user.userCountry" }
+                userStatus={ "user.userStatus" }
 
-                <div className={classes.containerPagination}>
-                    <ul>
-                        {pagination}
-                    </ul>
-                </div>
+                followToUser={ followToUser }
 
-                {eachUsers}
-
-                <div className={classes.users}>
-                    <div className={classes.userEvent}>
-                        <input
-                            onClick={this.getUsers}
-                            type="submit"
-                            name="submit"
-                            value="Show More"
-                            className={classes.buttonShowMore}
-                        />
-                    </div>
-                </div>
-
-            </div>
+            />
         )
+    } )
+
+
+    const pagesCount = Math.ceil( totalUsersCount / pageSize )
+    const pages = []
+
+    for (let i = 1; i <= pagesCount; i++) {
+        pages.push( i )
     }
+
+    const pagination = pages.map( (page) => {
+        return (
+            <li key={ page } className={ currentPage === page ? classes.active : '' }>
+                <button onClick={ () => pageChange( page ) }>{ page }</button>
+            </li>
+        )
+    } )
+
+    return (
+        <div className={ classes.findUsers }>
+            <h1>Find Users</h1>
+
+            <div className={ classes.containerPagination }>
+                <ul>
+                    { pagination }
+                </ul>
+            </div>
+
+            { eachUsers }
+
+            <div className={ classes.users }>
+                <div className={ classes.userEvent }>
+                    <input
+                        onClick={ getUsers }
+                        type="submit"
+                        name="submit"
+                        value="Show More"
+                        className={ classes.buttonShowMore }
+                    />
+                </div>
+            </div>
+
+        </div>
+    )
+
 }
 
 
@@ -165,32 +135,5 @@ const FindUsersComponent_saved = (props) => {
 }
 
 
-const mapStateToProps = (state) => {
-    return {
-        users: state.findUsers.users,
-        pageSize: state.findUsers.pageSize,
-        totalUsersCount: state.findUsers.totalUsersCount,
-        currentPage: state.findUsers.currentPage
-    }
-}
-
-const mapDispatchToProps = (dispatch) => {
-    return {
-        setUsers: (users) => {
-            dispatch(setUsersCreator(users))
-        },
-        followToUser: (userId) => {
-            dispatch(userFollowCreator(userId))
-        },
-        activePage: (numberPage) => {
-            dispatch(activePageCreator(numberPage))
-        },
-        setTotalUsersCount: (totalUsersCount) => {
-            dispatch(totalUsersCountCreator(totalUsersCount))
-        }
-    }
-}
-
-const FindUsers = connect(mapStateToProps, mapDispatchToProps)(FindUsersComponent)
 
 export default FindUsers

@@ -1,6 +1,6 @@
+import { connect } from "react-redux"
 import { sendMessageToUserCreator, updateMessageToUserCreator } from "../../../../redux/messages-reducer"
 import { FormMessage } from "./FormMessage"
-import { connect } from "react-redux"
 
 
 // export const FormMessageContainer = (props) => {

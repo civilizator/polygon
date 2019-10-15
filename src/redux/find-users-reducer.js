@@ -13,7 +13,7 @@ const initialState = {
         // { id: 6, userFollow: false, userName: "Brain", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  },
         // { id: 7, userFollow: true, userName: "Katrine", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  }
     ]
-    , totalUsersCount: 10
+    , totalUsersCount: 14
     , pageSize: 3
     , currentPage: 2
 }

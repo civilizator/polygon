@@ -3,7 +3,8 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import "./App.scss"
 
-import { Header, Sidebar, Profile, Messages, News, Music, FindUsers, Settings, Footer } from "./components"
+import { Header, Sidebar, Profile, Messages, News, Music, Settings, Footer } from "./components"
+import { FindUsersContainer } from "./components/FindUsres/component/FindUsersContainer";
 
 
 const App = (props) => {
@@ -23,7 +24,7 @@ const App = (props) => {
                     <Route path="/messages" component={ Messages }/>
                     <Route path="/news" component={ News }/>
                     <Route path="/music" component={ Music }/>
-                    <Route path="/find-users" component={ FindUsers }/>
+                    <Route path="/find-users" component={ FindUsersContainer }/>
                     <Route path="/settings" component={ Settings }/>
                 </div>
 
