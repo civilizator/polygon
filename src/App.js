@@ -4,7 +4,7 @@ import { BrowserRouter, Route } from 'react-router-dom'
 import "./App.scss"
 
 import { Header, Sidebar, Profile, Messages, News, Music, Settings, Footer } from "./components"
-import { FindUsersContainer } from "./components/FindUsres/component/FindUsersContainer";
+import FindUsersContainer from "./components/FindUsres/component/FindUsersContainer";
 
 
 const App = (props) => {

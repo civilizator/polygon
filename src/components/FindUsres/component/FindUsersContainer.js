@@ -1,7 +1,41 @@
 
 import {connect} from "react-redux"
 import { setUsersCreator, userFollowCreator, activePageCreator, totalUsersCountCreator } from "../../../redux/find-users-reducer"
-import FindUsersAPI from "./FindUsersAPI";
+import React from "react";
+import * as axios from "axios";
+import FindUsers from "./FindUsers";
+
+class FindUsersContainer extends React.Component {
+
+    pageChange = (page) => {
+        this.props.activePage( page )
+        axios.get( `https://social-network.samuraijs.com/api/1.0/users?page=${ page }&count=${ this.props.pageSize }` )
+            .then( res => {
+                this.props.setUsers( res.data.items )
+                this.props.setTotalUsersCount( res.data.totalCount )
+            } )
+    }
+
+    componentDidMount() {
+        if (this.props.users.length === 0) {
+            this.pageChange( this.props.currentPage )
+        }
+    }
+
+
+    render() {
+        return (
+            <FindUsers
+                users={ this.props.users }
+                followToUser={ this.props.followToUser }
+                totalUsersCount={ this.props.totalUsersCount }
+                pageSize={ this.props.pageSize }
+                currentPage={ this.props.currentPage }
+                pageChange={ this.pageChange }
+            />
+        )
+    }
+}
 
 const mapStateToProps = (state) => {
     return {
@@ -29,5 +63,5 @@ const mapDispatchToProps = (dispatch) => {
     }
 }
 
-export const FindUsersContainer = connect(mapStateToProps, mapDispatchToProps)(FindUsersAPI)
+export default connect(mapStateToProps, mapDispatchToProps)(FindUsersContainer)
 
