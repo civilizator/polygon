@@ -9,32 +9,30 @@ import FindUsers from "./FindUsers"
 class FindUsersAPI extends React.Component {
 
     pageChange = (page) => {
-        this.props.activePage(page)
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${page}&count=${this.props.pageSize}`)
-            .then(res => {
-                this.props.setUsers(res.data.items)
-                this.props.setTotalUsersCount(res.data.totalCount)
-            })
+        this.props.activePage( page )
+        axios.get( `https://social-network.samuraijs.com/api/1.0/users?page=${ page }&count=${ this.props.pageSize }` )
+            .then( res => {
+                this.props.setUsers( res.data.items )
+                this.props.setTotalUsersCount( res.data.totalCount )
+            } )
     }
 
     componentDidMount() {
         if (this.props.users.length === 0) {
-            this.pageChange(1)
+            this.pageChange( this.props.currentPage )
         }
     }
-
-
 
 
     render() {
         return (
             <FindUsers
-                users={this.props.users}
-                followToUser={this.props.followToUser}
-                totalUsersCount={this.props.totalUsersCount}
-                pageSize={this.props.pageSize}
-                currentPage={this.props.currentPage}
-                pageChange={this.pageChange}
+                users={ this.props.users }
+                followToUser={ this.props.followToUser }
+                totalUsersCount={ this.props.totalUsersCount }
+                pageSize={ this.props.pageSize }
+                currentPage={ this.props.currentPage }
+                pageChange={ this.pageChange }
             />
         )
     }

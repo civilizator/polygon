@@ -14,7 +14,7 @@ const initialState = {
         // { id: 7, userFollow: true, userName: "Katrine", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  }
     ]
     , totalUsersCount: 14
-    , pageSize: 3
+    , pageSize: 10
     , currentPage: 2
 }
 
