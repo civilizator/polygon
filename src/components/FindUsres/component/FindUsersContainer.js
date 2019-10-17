@@ -8,7 +8,7 @@ import FindUsers from "./FindUsers";
 class FindUsersContainer extends React.Component {
 
     pageChange = (page) => {
-        this.props.activePage( page )
+        this.props.setActivePage( page )
         axios.get( `https://social-network.samuraijs.com/api/1.0/users?page=${ page }&count=${ this.props.pageSize }` )
             .then( res => {
                 this.props.setUsers( res.data.items )
@@ -17,17 +17,16 @@ class FindUsersContainer extends React.Component {
     }
 
     componentDidMount() {
-        if (this.props.users.length === 0) {
+        // if (this.props.users.length === 0) {
             this.pageChange( this.props.currentPage )
-        }
+        // }
     }
-
 
     render() {
         return (
             <FindUsers
                 users={ this.props.users }
-                followToUser={ this.props.followToUser }
+                setFollowToUser={ this.props.setFollowToUser }
                 totalUsersCount={ this.props.totalUsersCount }
                 pageSize={ this.props.pageSize }
                 currentPage={ this.props.currentPage }
@@ -52,10 +51,10 @@ const mapDispatchToProps = (dispatch) => {
         setUsers: (users) => {
             dispatch(setUsersCreator(users))
         },
-        followToUser: (userId) => {
+        setFollowToUser: (userId) => {
             dispatch(userFollowCreator(userId))
         },
-        activePage: (numberPage) => {
+        setActivePage: (numberPage) => {
             dispatch(activePageCreator(numberPage))
         },
         setTotalUsersCount: (totalUsersCount) => {

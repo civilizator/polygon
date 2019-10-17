@@ -6,7 +6,7 @@ import { Users } from "./Users"
 
 const FindUsers = (props) => {
 
-    const { users, followToUser, totalUsersCount, pageSize, currentPage, pageChange } = props
+    const { users, setFollowToUser, totalUsersCount, pageSize, currentPage, pageChange } = props
 
     const getUsers = () => {
         console.log( 'getUsers: ' )
@@ -19,13 +19,13 @@ const FindUsers = (props) => {
             <Users
                 key={ user.id }
                 userId={ user.id }
-                userFollow={ user.followed }
+                followed={ user.followed }
                 userName={ user.name }
                 userCity={ "user.userCity" }
                 userCountry={ "user.userCountry" }
                 userStatus={ "user.userStatus" }
 
-                followToUser={ followToUser }
+                setFollowToUser={ setFollowToUser }
 
             />
         )

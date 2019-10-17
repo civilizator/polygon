@@ -2,15 +2,15 @@ import React from "react"
 import classes from "./FindUsers.module.scss"
 
 const ButtonFollow = (props) => {
-    const { userId, userFollow, followToUser } = props
+    const { userId, followed, setFollowToUser } = props
 
     const sendFollow = () => {
-        followToUser(userId)
+        setFollowToUser(userId)
     }
 
     return (
         <>
-            {userFollow
+            {followed
                 ? <input onClick={ sendFollow } type="submit" name="submit" value="Follower" className={ classes.buttonFollow }/>
                 : <input onClick={ sendFollow } type="submit" name="submit" value="Unfollower" className={ classes.buttonUnfollow }/>}
         </>
@@ -18,13 +18,13 @@ const ButtonFollow = (props) => {
 }
 
 export const Users = (props) => {
-    const { userId, userFollow, userName, userCity, userCountry, userStatus, followToUser } = props
+    const { userId, followed, userName, userCity, userCountry, userStatus, setFollowToUser } = props
 
     return (
         <div className={ classes.users }>
             <div className={ classes.userInfo }>
                 <div className={ classes.userPick }> </div>
-                <ButtonFollow userId={ userId } userFollow={userFollow} followToUser={followToUser}/>
+                <ButtonFollow userId={ userId } followed={followed} setFollowToUser={setFollowToUser}/>
             </div>
             <div className={ classes.userEvent }>
                 <div className={ classes.userDescription }>
