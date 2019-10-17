@@ -42,7 +42,8 @@ const mapStateToProps = (state) => {
         users: state.findUsers.users,
         pageSize: state.findUsers.pageSize,
         totalUsersCount: state.findUsers.totalUsersCount,
-        currentPage: state.findUsers.currentPage
+        currentPage: state.findUsers.currentPage,
+        isFetching: state.findUsers.isFetching
     }
 }
 
