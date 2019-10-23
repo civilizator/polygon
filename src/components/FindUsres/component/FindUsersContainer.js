@@ -8,7 +8,7 @@ import {
 } from "../../../redux/find-users-reducer"
 import React from "react";
 import * as axios from "axios";
-import FindUsers from "./FindUsers";
+import FindUsers from "./FindUsers"
 import classes from "./FindUsersLoader.module.scss"
 
 const UsersLoaderComponent = () => {
@@ -68,6 +68,7 @@ const mapStateToProps = (state) => {
     }
 }
 
+
 const mapDispatchToProps = (dispatch) => {
     return {
         setUsers: (users) => {
@@ -87,6 +88,15 @@ const mapDispatchToProps = (dispatch) => {
         }
     }
 }
+
+
+// const mapDispatchToProps = {
+//         setUsers: setUsersCreator,
+//         setFollowToUser: userFollowCreator,
+//         setActivePage: activePageCreator,
+//         setTotalUsersCount: totalUsersCountCreator,
+//         eventPreloader: eventPreloaderCreator
+// }
 
 export default connect( mapStateToProps, mapDispatchToProps )( FindUsersContainer )
 

@@ -1,5 +1,6 @@
 import React from "react"
 import classes from "./FindUsers.module.scss"
+import { NavLink } from "react-router-dom"
 
 const ButtonFollow = (props) => {
     const { userId, followed, setFollowToUser } = props
@@ -23,7 +24,11 @@ export const Users = (props) => {
     return (
         <div className={ classes.users }>
             <div className={ classes.userInfo }>
-                <div className={ classes.userPick }> </div>
+
+                <NavLink to={`/profile/${userId}`}>
+                    <div className={ classes.userPick }> </div>
+                </NavLink>
+
                 <ButtonFollow userId={ userId } followed={followed} setFollowToUser={setFollowToUser}/>
             </div>
             <div className={ classes.userEvent }>

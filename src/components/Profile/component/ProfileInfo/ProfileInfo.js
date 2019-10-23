@@ -4,7 +4,11 @@ import { connect } from "react-redux"
 
 
 const ProfileInfoComponent = (props) => {
-    const { bgUrl, profileImgUrl, descriptionProfile } = props
+    const { bgUrl, profileImgUrl, descriptionProfile, profile } = props
+
+    if(!profile) {
+        return <div><h1>L O A D I N G</h1></div>
+    }
 
     return (
         <>
@@ -17,7 +21,7 @@ const ProfileInfoComponent = (props) => {
                 <div className={ classes.profileImage }>
                     <img
                         alt="drops"
-                        src={ profileImgUrl }/>
+                        src={ !profile.photos.large ? profileImgUrl : profile.photos.large  }/>
                 </div>
                 <div className={ classes.descriptionProfile }>
                     { descriptionProfile }
@@ -31,6 +35,7 @@ const ProfileInfoComponent = (props) => {
 const mapStateToProps = (state) => {
     const profile = state.profile.infoProfile
     return {
+        profile: state.profile.profile,
         bgUrl: profile.bgUrl,
         profileImgUrl: profile.profileImgUrl,
         descriptionProfile: profile.descriptionProfile

@@ -1,2 +1,2 @@
-import Profile from "./component/Profile"
+import Profile from "./component/ProfileContainer"
 export default Profile

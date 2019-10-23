@@ -8,26 +8,26 @@ const FindUsers = (props) => {
 
     const { users, setFollowToUser, totalUsersCount, pageSize, currentPage, pageChange } = props
 
-    const getUsers = () => {
-        console.log( 'getUsers: ' )
+    const showMore = () => {
+        console.log( 'showMore: ' )
 
     }
 
 
     const eachUsers = users.map( (user) => {
         return (
-            <Users
-                key={ user.id }
-                userId={ user.id }
-                followed={ user.followed }
-                userName={ user.name }
-                userCity={ "user.userCity" }
-                userCountry={ "user.userCountry" }
-                userStatus={ "user.userStatus" }
+                <Users
+                    key={ user.id }
+                    userId={ user.id }
+                    followed={ user.followed }
+                    userName={ user.name }
+                    userCity={ "user.userCity" }
+                    userCountry={ "user.userCountry" }
+                    userStatus={ "user.userStatus" }
 
-                setFollowToUser={ setFollowToUser }
+                    setFollowToUser={ setFollowToUser }
 
-            />
+                />
         )
     } )
 
@@ -62,7 +62,7 @@ const FindUsers = (props) => {
             <div className={ classes.users }>
                 <div className={ classes.userEvent }>
                     <input
-                        onClick={ getUsers }
+                        onClick={ showMore }
                         type="submit"
                         name="submit"
                         value="Show More"
