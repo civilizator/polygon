@@ -19,14 +19,16 @@ const ButtonFollow = (props) => {
 }
 
 export const Users = (props) => {
-    const { userId, followed, userName, userCity, userCountry, userStatus, setFollowToUser } = props
+    const { userId, followed, userName, photosSmall, userCity, userCountry, userStatus, setFollowToUser } = props
 
     return (
         <div className={ classes.users }>
             <div className={ classes.userInfo }>
 
                 <NavLink to={`/profile/${userId}`}>
-                    <div className={ classes.userPick }> </div>
+                    <div className={ classes.userPick }>
+                        <img alt='user pic' src={ photosSmall } />
+                    </div>
                 </NavLink>
 
                 <ButtonFollow userId={ userId } followed={followed} setFollowToUser={setFollowToUser}/>

@@ -21,6 +21,7 @@ const FindUsers = (props) => {
                     userId={ user.id }
                     followed={ user.followed }
                     userName={ user.name }
+                    photosSmall={ user.photos.small }
                     userCity={ "user.userCity" }
                     userCountry={ "user.userCountry" }
                     userStatus={ "user.userStatus" }

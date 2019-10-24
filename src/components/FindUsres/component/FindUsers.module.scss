@@ -70,11 +70,13 @@
       .userPick {
         width: 80px;
         height: 80px;
+        vertical-align: 80px;
         border-radius: 100%;
         background-color: #d8e0e2;
         margin: 0 auto 20px;
-
         object-fit: cover;
+        overflow: hidden;
+
       }
 
       .buttonFollow {

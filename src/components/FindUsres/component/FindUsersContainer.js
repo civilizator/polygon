@@ -37,7 +37,9 @@ class FindUsersContainer extends React.Component {
         // if (this.props.users.length === 0) {
         this.pageChange( this.props.currentPage )
         // }
+        // console.log(this.props.profile)
     }
+
 
     render() {
         return (

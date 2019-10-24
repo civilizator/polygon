@@ -9,7 +9,7 @@ const ProfileInfoComponent = (props) => {
     if(!profile) {
         return <div><h1>L O A D I N G</h1></div>
     }
-
+    // console.log(profile)
     return (
         <>
             <div className={ classes.profileBackground }>
@@ -24,7 +24,7 @@ const ProfileInfoComponent = (props) => {
                         src={ !profile.photos.large ? profileImgUrl : profile.photos.large  }/>
                 </div>
                 <div className={ classes.descriptionProfile }>
-                    { descriptionProfile }
+                    { !profile.aboutMe ? descriptionProfile : profile.aboutMe }
                 </div>
             </div>
         </>

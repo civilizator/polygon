@@ -20,7 +20,7 @@ const App = (props) => {
                 <div className="content">
                     {/*<Route path="/profile" render={ () => <Profile /> } />*/}
                     {/*<Route path="/messages" render={ () => <Messages /> } />*/}
-                    <Route path="/profile" component={ Profile }/>
+                    <Route path="/profile/:userId?" component={ Profile }/>
                     <Route path="/messages" component={ Messages }/>
                     <Route path="/news" component={ News }/>
                     <Route path="/music" component={ Music }/>
