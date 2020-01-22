@@ -25,7 +25,10 @@ class FindUsersContainer extends React.Component {
     pageChange = (page) => {
         this.props.eventPreloader( !0 )
         this.props.setActivePage( page )
-        axios.get( `https://social-network.samuraijs.com/api/1.0/users?page=${ page }&count=${ this.props.pageSize }` )
+        axios.get(
+            `https://social-network.samuraijs.com/api/1.0/users?page=${ page }&count=${ this.props.pageSize }`,
+            { withCredentials: true }
+        )
             .then( res => {
                 this.props.setUsers( res.data.items )
                 this.props.setTotalUsersCount( res.data.totalCount )

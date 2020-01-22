@@ -1,12 +1,16 @@
 .header {
   background-color: #d8e0e2;
   min-height: 100%;
-  display: grid;
   //box-shadow: 1px 2px 8px #00000026;
 
   .logo {
     height: 60px;
   }
 
+  .login {
+    float: right;
+    margin-right: 25px;
+    margin-top: 15px;
+  }
 }
 

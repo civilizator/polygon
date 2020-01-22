@@ -6,14 +6,16 @@ const EVENT_PRELOADER = 'EVENT-PRELOADER'
 
 const initialState = {
     users: [
-        // { id: 1, followed: true, name: "Maria K.", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!" },
-        // { id: 2, followed: false, name: "John", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  },
-        // { id: 3, followed: false, name: "Sarah", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  },
-        // { id: 4, followed: true, name: "Jax", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  },
-        // { id: 5, followed: false, name: "Helen", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  },
-        // { id: 6, followed: false, name: "Brain", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  },
-        // { id: 7, followed: true, name: "Katrine", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!"  }
-    ]
+        /*
+        { id: 1, followed: true, name: "Maria K.", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!", photos: {small: null} },
+        { id: 2, followed: false, name: "John", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!", photos: {small: null}  },
+        { id: 3, followed: false, name: "Sarah", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!", photos: {small: null}  },
+        { id: 4, followed: true, name: "Jax", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!", photos: {small: null}  },
+        { id: 5, followed: false, name: "Helen", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!", photos: {small: null}  },
+        { id: 6, followed: false, name: "Brain", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!", photos: {small: null}  },
+        { id: 7, followed: true, name: "Katrine", userCity: "City", userCountry: "Country", userStatus: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam, veritatis!", photos: {small: null}  }
+    */
+        ]
     , totalUsersCount: 15
     , pageSize: 10
     , currentPage: 1
@@ -80,7 +82,7 @@ const findUsersReducer = (state = initialState, action) => {
 }
 
 export const
-    setUsersCreator = (users) => {
+      setUsersCreator = (users) => {
         return { type: SET_USERS, users: users }
     }
     , userFollowCreator = (userId) => {

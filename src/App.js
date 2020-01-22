@@ -18,7 +18,7 @@ const App = (props) => {
                 <div className="sidebar"><Sidebar /></div>
 
                 <div className="content">
-                    {/*<Route path="/profile" render={ () => <Profile /> } />*/}
+                    {/*<Route path="/profile/:userId?" render={ () => <Profile /> } />*/}
                     {/*<Route path="/messages" render={ () => <Messages /> } />*/}
                     <Route path="/profile/:userId?" component={ Profile }/>
                     <Route path="/messages" component={ Messages }/>

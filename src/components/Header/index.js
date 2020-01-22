@@ -1,2 +1,2 @@
-import Header from "./component/Header"
+import Header from "./component/HeaderContainer"
 export default Header

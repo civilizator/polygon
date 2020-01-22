@@ -15,6 +15,7 @@ const FindUsers = (props) => {
 
 
     const eachUsers = users.map( (user) => {
+        // console.log(user)
         return (
                 <Users
                     key={ user.id }

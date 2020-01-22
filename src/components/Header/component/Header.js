@@ -1,9 +1,26 @@
 import React from "react"
 import classes from "./Header.module.scss"
 import { connect } from "react-redux"
+import { NavLink } from "react-router-dom"
+
+const Login = () => {
+    return (
+        <div className={ classes.login }>
+            <NavLink to={ "/login" }>Login</NavLink>
+        </div>
+    )
+}
+
+const Auth = (props) => {
+    return (
+        <div className={ classes.login }>
+            { props.auth }
+        </div>
+    )
+}
 
 const HeaderComponent = (props) => {
-    const { logoImageSrc, logoAlt } = props
+    const { isAuth, auth, logoImageSrc, logoAlt } = props
 
     return (
         <header className={ classes.header }>
@@ -11,6 +28,9 @@ const HeaderComponent = (props) => {
                  src={ logoImageSrc }
                  alt={ logoAlt }
             />
+
+            { !isAuth ? <Login/> : <Auth auth={ auth }/> }
+
         </header>
     )
 }
@@ -18,6 +38,8 @@ const HeaderComponent = (props) => {
 
 const mapStateToProps = (state) => {
     return {
+        isAuth: state.auth.isAuth,
+        auth: state.auth.login,
         logoImageSrc: state.header.headerLogo.logoImageSrc,
         logoAlt: state.header.headerLogo.logoAlt
     }
